@@ -1,0 +1,6 @@
+Establish a UART protocol between PC and FPGA to perform serial communication. You can
+write your own code for UART.
+
+Design and implement a hardware (on the Basys3 board) to transmit data at the baud rate of 9600, 8
+data bits, 1 stop bit, and no parity. Also, at the receiving end PC need to be set with same
+settings (using a HyperTerminal or Putty or minicom).
