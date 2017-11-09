@@ -14,3 +14,26 @@ entity UART_main is
 		serial_out : out std_logic);
 end UART_main;
 
+
+architecture behav of UART_main is
+
+signal data_transmit : std_logic_vector(7 downto 0);
+signal data_write    : std_logic_vector(7 downto 0);
+
+begin
+receiver : entity work.uart_RX 
+	generic map (
+		g_clock_per_bit => 117)
+	port map (
+		in_clk => clk,
+		in_RX_serial => receive,
+		out_RX_DV => execute,
+		out_RX_byte => data_write);
+
+transmitter : entity work.uart_TX
+	generic map (
+		g_clock_per_bit => 117)
+	port map (
+		in_clk => clk,
+		in_TX_DV => execute,
+		in_TX_byte => data_transmit,
