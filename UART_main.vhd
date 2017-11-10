@@ -27,7 +27,7 @@ receiver : entity work.uart_RX
 	port map (
 		in_clk => clk,
 		in_RX_serial => receive,
-		out_RX_DV => execute,
+		out_RX_DV => open,
 		out_RX_byte => data_write);
 
 transmitter : entity work.uart_TX
