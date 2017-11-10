@@ -9,18 +9,17 @@ entity UART_main is
 		data       : in std_logic_vector(7 downto 0);
 		receive    : in std_logic;
 		transmit   : in std_logic;
-		execute    : in std_logic;
-		serial_in  : in std_logic;
-		serial_out : out std_logic);
+		execute    : in std_logic);
 end UART_main;
 
 
 architecture behav of UART_main is
 
 signal data_transmit : std_logic_vector(7 downto 0);
-signal data_write    : std_logic_vector(7 downto 0);
+signal data_receive  : std_logic_vector(7 downto 0);
 
 begin
+
 receiver : entity work.uart_RX 
 	generic map (
 		g_clock_per_bit => 117)
@@ -37,3 +36,8 @@ transmitter : entity work.uart_TX
 		in_clk => clk,
 		in_TX_DV => execute,
 		in_TX_byte => data_transmit,
+		out_TX_active => open,
+		out_TX_serial => transmit,
+		out_TX_done => open);
+
+end behav;
