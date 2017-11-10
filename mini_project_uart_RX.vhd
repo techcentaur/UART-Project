@@ -18,7 +18,7 @@ use ieee.numeric_std.all;
 
 entity uart_RX is
   generic (
-    g_clock_per_bit : integer := 117     -- Needs to be set correctly and as needed //constants
+    g_clock_per_bit : integer := 10416     -- Needs to be set correctly and as needed //constants
     );
   port (
     in_clk       : in  std_logic;           --input clock

@@ -11,7 +11,7 @@ architecture behave of uart_TB is
  
   component uart_TX is
     generic (
-      g_clock_per_bit : integer := 117   -- Needs to be set correctly
+      g_clock_per_bit : integer := 2604   -- Needs to be set correctly
       );
     port (
       in_clk       : in  std_logic;
@@ -25,7 +25,7 @@ architecture behave of uart_TB is
  
   component uart_RX is
     generic (
-      g_clock_per_bit : integer := 117   -- Needs to be set correctly
+      g_clock_per_bit : integer := 2604   -- Needs to be set correctly
       );
     port (
       in_clk       : in  std_logic;
